@@ -1,0 +1,772 @@
+                                                                     < Source Code >
+
+#include<stdio.h>
+#include<windows.h>
+#define clrscr() system("cls")
+void firstpage()
+{
+    printf("**************************************\n");
+    printf("         RESTAURANT MINI PROJECT");
+    printf("\n            !! FOODDADY !!");
+    printf("\n\n             WELCOME             \n");
+    printf("\n[0]Exit                  Continue[1]\n");
+    printf("\n**************************************\n");
+    printf("Enter your choice:");
+    return 0;
+}
+void options()
+{
+    printf("\nCash on delivery is only available for orders pricing below Rs.500!");
+}
+void thankyou()
+{
+    printf("\n\n\tTHANK YOU!! VISIT US AGAIN!!\n");
+    for(int i=0;i<100;i++) printf("X");
+}
+int res_list()
+{
+    int c1;
+    scanf("%d",&c1);
+    clrscr();
+    switch(c1)
+    {
+    case 1:
+    {
+     printf("LIST OF RESTAURANTS:\n");
+     printf("1.SAI VIHAR\n");
+     printf("2.RASIKAS\n");
+     printf("3.11 TO 11\n");
+     printf("4.SARAVANA BHAVAN\n");
+     break;
+    }
+    case 0:
+        thankyou();
+        break;
+    default:
+        printf("\nInvalid choice");
+        break;
+    }
+}
+void userdetails()
+{
+printf("Please fill in your delivery details \n");
+
+char fname[25],lname[25],pn[25],a1[2500],tl[50],lm[50],pc[50];
+printf(" First name      :\t");
+scanf("%s",&fname);
+printf(" Last name       :\t");
+scanf("%s",&lname);
+printf(" Phone No.       :\t");
+scanf("%s",&pn);
+printf("Address Line     :\t");
+scanf("%s",&a1);
+printf("Town/Locality    :\t");
+scanf("%s",&tl);
+printf("Landmark         :\t");
+scanf("%s",&lm);
+printf("Pincode          :\t");
+scanf("%s",&pc);
+printf("\n");
+for(int l=0;l<80;l++) printf("X");
+int a;
+}
+int res1()
+{
+    int ch,i,qty,net=0;
+    printf("\n\n    WELCOME TO SAI VIHAR!   ");
+    printf("\n***********MENU CARD***********");
+    printf("\n1)PONGAL          (V)     Rs:70");
+    printf("\n2)POORI           (V)     Rs:65");
+    printf("\n3)VADAI           (V)     Rs:25");
+    printf("\n4)PAPER ROAST DOSA(V)     Rs:55");
+    printf("\n5)CHAPATI         (V)     Rs:65");
+    printf("\n6)ONION UTTAPAM   (V)     Rs:99");
+    printf("\n7)TEA             (V)     Rs:45");
+    printf("\n8)IDLI(3 Pcs)     (V)     Rs:60");
+    printf("\n*******************************");
+    repeat:
+    printf("\n Enter Your choice       : ");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+    case 1:
+        printf("\nYou have selected :PONGAL");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net=net+(qty*70);
+        break;
+     case 2:
+        printf("\nYou have selected :POORI");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*65);
+        break;
+     case 3:
+        printf("\nYou have selected :VADAI");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*25);
+        break;
+     case 4:
+        printf("\nYou have selected :PAPER ROAST DOSA");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*55);
+        break;
+    case 5:
+        printf("\nYou have selected :CHAPATI");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*65);
+        break;
+    case 6:
+        printf("\nYou have selected :ONION UTTAPAM");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*99);
+        break;
+    case 7:
+        printf("\nYou have selected :TEA");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*45);
+        break;
+    case 8:
+        printf("\nYou have selected : IDLI(3 Pcs)");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*60);
+        break;
+     default:
+          printf("\nInvalid Product Selection\n");
+          break;
+
+    }
+    printf("If you want to select one more item press(1) else press (0): ");
+    scanf("%d",&i);
+    if(i==1){
+        goto repeat;
+    }
+    else
+{
+printf("Total amount =  Rs.%d/-",net);
+Sleep(3000);
+clrscr();
+userdetails();
+int a;
+printf("\nTOTAL AMOUNT TO BE PAID : \tRs.%d/-\n",net);
+for(int l=0;l<80;l++) printf("X");
+printf("\nPAYMENT OPTIONS AVAILABLE for YOU!:-");
+options();
+if(net>500)
+{
+Sleep(500);
+printf("\n1.UPI\n2.Pay with CARD\n3.Cancel order");
+chagain:
+printf("\nEnter your choice\t:");
+scanf("%d",&a);
+switch(a){
+	case 1:
+        upi();
+        break;
+    case 2:
+        card();
+        break;
+	case 3:
+	    printf("\n\tYour order is cancelled!");
+        thankyou();
+        break;
+    default:
+        printf("\n\tINVALID CHOICE");
+        goto chagain;
+        break;
+	}
+}
+else
+{
+printf("\n1.UPI\n2.Pay with CARD\n3.Cash on Delivery\n4.Cancel Order");
+chagain1:
+printf("\nEnter your choice:\t");
+ scanf("%d",&a);
+ switch(a){
+	case 1:
+        upi();
+        break;
+    case 2:
+        card();
+        break;
+	case 3:
+	    cod();
+        break;
+    case 4:
+         printf("\n\tYour order is cancelled!");
+         thankyou();
+        break;
+    default:
+        printf("\n\tINVALID CHOICE");
+        goto chagain1;
+        break;
+	}
+}
+}
+}
+int res2()
+{
+    int ch,i,qty,net=0;
+    printf("\n\n      WELCOME TO RASIKAS!   ");
+    printf("\n*************MENU CARD*************");
+    printf("\n1)CHICKEN BIRIYANI    (N)    Rs:260");
+    printf("\n2)BUTTER NAAN         (V)    Rs:52");
+    printf("\n3)GRILLED CHICKEN     (N)    Rs:250");
+    printf("\n4)PANEER BUTTER MASALA(V)    Rs:120");
+    printf("\n5)MUTTON MASALA       (N)    Rs:364");
+    printf("\n6)PRAWN CURRY         (N)    Rs:312");
+    printf("\n7)MUSHROOM CHETTINADU (V)    Rs:182");
+    printf("\n8)DAL TADKA           (V)    Rs:182");
+    printf("\n***********************************");
+    repeat:
+    printf("\n Enter Your choice       : ");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+    case 1:
+        printf("\nYou have selected : CHICKEN BIRIYANI");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net=net+(qty*260);
+        break;
+     case 2:
+        printf("\nYou have selected : BUTTER NAAN");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*52);
+        break;
+     case 3:
+        printf("\nYou have selected : GRILLED CHICKEN");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*250);
+        break;
+     case 4:
+        printf("\nYou have selected : PANEER BUTTER MASALA");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*120);
+        break;
+    case 5:
+        printf("\nYou have selected : MUTTON MASALA");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*364);
+        break;
+    case 6:
+        printf("\nYou have selected : PRAWN CURRY");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*312);
+        break;
+    case 7:
+        printf("\nYou have selected : MUSHROOM CHETTINAD");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*182);
+        break;
+    case 8:
+        printf("\nYou have selected : DAL TADKA");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*182);
+        break;
+     default:
+          printf("\nInvalid Product Selection\n");
+          break;
+
+    }
+    printf("If you want to select one more item press(1) else press (0): ");
+    scanf("%d",&i);
+    if(i==1){
+        goto repeat;
+    }
+    else
+{
+printf("Total amount =  Rs.%d/-",net);
+Sleep(3000);
+clrscr();
+userdetails();
+int a;
+printf("\nTOTAL AMOUNT TO BE PAID :\tRs.%d/-\n",net);
+for(int l=0;l<80;l++) printf("X");
+printf("\nPAYMENT OPTIONS AVAILABLE for YOU!:-");
+options();
+if(net>500)
+{
+printf("\n1.UPI\n2.Pay with CARD\n3.Cancel order");
+chagain:
+printf("\nEnter your choice\t:");
+scanf("%d",&a);
+switch(a){
+	case 1:
+        upi();
+        break;
+    case 2:
+        card();
+        break;
+	case 3:
+	    printf("\n\tYour order is cancelled!");
+	    thankyou();
+        break;
+    default:
+        printf("\n\tINVALID CHOICE");
+        goto chagain;
+        break;
+	}
+}
+else
+{printf("\n1.UPI\n2.Pay with CARD\n3.Cash on Delivery\n4.Cancel Order");
+chagain1:
+printf("\nEnter your choice:\t");
+ scanf("%d",&a);
+ switch(a){
+	case 1:
+        upi();
+        break;
+    case 2:
+        card();
+        break;
+	case 3:
+	    cod();
+        break;
+    case 4:
+         printf("Your order is cancelled!");
+         thankyou();
+        break;
+    default:
+        printf("INVALID CHOICE");
+        goto chagain1;
+        break;
+	}
+}
+}
+}
+int res3()
+{
+    int ch,i,qty,net=0;
+    printf("\n\n      WELCOME TO 11 TO 11!   ");
+    printf("\n*************MENU CARD*************");
+    printf("\n1)VEG GRILLED SANDWICH (V)    Rs:45");
+    printf("\n2)BPQ PANEER SHAWARMA  (V)    Rs:105");
+    printf("\n3)8' VEG SPICY PIZZA   (V)    Rs:140");
+    printf("\n4)VEG SPICY WRAP       (V)    Rs:80");
+    printf("\n5)CHILLI CHEESE BURGER (V)    Rs:85");
+    printf("\n6)BROWNIE MILK SHAKE   (V)    Rs:100");
+    printf("\n7)RED VELVET MILK SHAKE(V)    Rs:95");
+    printf("\n8)KITKAT MILK SHAKE    (V)    Rs:95");
+    printf("\n***********************************");
+    repeat:
+    printf("\n Enter Your choice       : ");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+    case 1:
+        printf("\nYou have selected : VEG GRILLED SANDWICH");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net=net+(qty*45);
+        break;
+     case 2:
+        printf("\nYou have selected : BPQ PANEER SHAWARMA");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*105);
+        break;
+     case 3:
+        printf("\nYou have selected : 8' VEG SPICY PIZZA");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*140);
+        break;
+     case 4:
+        printf("\nYou have selected : VEG SPICY WRAP");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*80);
+        break;
+    case 5:
+        printf("\nYou have selected : CHILLI CHEESE BURGER");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*85);
+        break;
+    case 6:
+        printf("\nYou have selected : BROWNIE MILK SHAKE");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*100);
+        break;
+    case 7:
+        printf("\nYou have selected : RED VELVET MILK SHAKE");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*95);
+        break;
+    case 8:
+        printf("\nYou have selected : KITKAT MILK SHAKE ");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*95);
+        break;
+     default:
+          printf("\nInvalid Product Selection\n");
+          break;
+
+    }
+    printf("If you want to select one more item press(1) else press (0): ");
+    scanf("%d",&i);
+    if(i==1){
+        goto repeat;
+    }
+    else
+{
+printf("Total amount =  Rs.%d/-",net);
+Sleep(3000);
+clrscr();
+userdetails();
+int a;
+printf("\nTOTAL AMOUNT TO BE PAID :\tRs.%d/-\n",net);
+for(int l=0;l<80;l++) printf("X");
+printf("\nPAYMENT OPTIONS AVAILABLE for YOU!:-");
+options();
+if(net>500)
+{
+printf("\n1.UPI\n2.Pay with CARD\n3.Cancel order");
+chagain:
+printf("\nEnter your choice:\t");
+scanf("%d",&a);
+switch(a){
+	case 1:
+        upi();
+        break;
+    case 2:
+        card();
+        break;
+	case 3:
+	    printf("Your order is cancelled!");
+	    thankyou();
+        break;
+    default:
+        printf("INVALID CHOICE");
+        goto chagain;
+        break;
+	}
+}
+else
+{printf("\n1.UPI\n2.Pay with CARD\n3.Cash on Delivery\n4.Cancel Order");
+chagain1:
+printf("\nEnter your choice:\t");
+ scanf("%d",&a);
+ switch(a){
+	case 1:
+        upi();
+        break;
+    case 2:
+         card();
+        break;
+	case 3:
+	    cod();
+        break;
+    case 4:
+         printf("Your order is cancelled!");
+         thankyou();
+        break;
+    default:
+        printf("INVALID CHOICE");
+        goto chagain1;
+        break;
+	}
+}
+}
+}
+int res4()
+{
+    int ch,i,qty,net=0;
+    printf("\n\n WELCOME TO SARAVANA BHAVAN!   ");
+    printf("\n***********MENU CARD***********");
+    printf("\n1)PAROTTA[2 Pcs]    (V)   Rs:50");
+    printf("\n2)PANEER FRIED RICE (V)   Rs:149");
+    printf("\n3)GOBI MANCHURIAN   (V)   Rs:189");
+    printf("\n4)MUSHROOM CHILLI   (V)   Rs:179");
+    printf("\n5)CHICKEN HOT PEPPER(N)   Rs:249");
+    printf("\n6)FISH CURRY        (N)   Rs:299");
+    printf("\n7)CRAB FRY          (N)   Rs:430");
+    printf("\n8)CHOCOLATE ICECREAM(N)   Rs:79");
+    printf("\n*******************************");
+    repeat:
+    printf("\n Enter Your choice       : ");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+    case 1:
+        printf("\nYou have selected : PAROTTA[2 Pcs]");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net=net+(qty*50);
+        break;
+     case 2:
+        printf("\nYou have selected : PANEER FRIED RICE");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*149);
+        break;
+     case 3:
+        printf("\nYou have selected : GOBI MANCHURIAN ");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*189);
+        break;
+     case 4:
+        printf("\nYou have selected : MUSHROOM CHILLI");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*179);
+        break;
+    case 5:
+        printf("\nYou have selected : CHICKEN HOT PEPPER");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*249);
+        break;
+    case 6:
+        printf("\nYou have selected : FISH CURRY");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*299);
+        break;
+    case 7:
+        printf("\nYou have selected : CRAB FRY");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*430);
+        break;
+    case 8:
+        printf("\nYou have selected : CHOCOLATE ICECREAM");
+        printf("\nEnter The Qty : ");
+        scanf("%d",&qty);
+        net+=(qty*79);
+        break;
+     default:
+          printf("\nInvalid Product Selection\n");
+          break;
+
+    }
+    printf("If you want to select one more item press(1) else press (0): ");
+    scanf("%d",&i);
+    if(i==1){
+        goto repeat;
+    }
+    else
+{
+printf("Total amount =  Rs.%d/-",net);
+Sleep(3000);
+clrscr();
+userdetails();
+int a;
+printf("\nTOTAL AMOUNT TO BE PAID :\tRs.%d/-\n",net);
+for(int l=0;l<80;l++) printf("X");
+printf("\nPAYMENT OPTIONS AVAILABLE for YOU!:-");
+options();
+if(net>500)
+{
+printf("\n1.UPI\n2.Pay with CARD\n3.Cancel order");
+chagain:
+printf("\nEnter your choice:\t");
+scanf("%d",&a);
+switch(a){
+	case 1:
+        upi();
+        break;
+    case 2:
+        card();
+        break;
+	case 3:
+	    printf("Your order is cancelled!");
+	    thankyou();
+        break;
+    default:
+        printf("INVALID CHOICE");
+        goto chagain;
+        break;
+	}
+}
+else
+{printf("\n1.UPI\n2.Pay with CARD\n3.Cash on Delivery\n4.Cancel Order");
+chagain1:
+printf("\nEnter your choice:\t");
+ scanf("%d",&a);
+ switch(a){
+	case 1:
+        upi();
+        break;
+    case 2:
+        card();
+        break;
+	case 3:
+	    cod();
+        break;
+    case 4:
+         printf("Your order is cancelled!");
+         thankyou();
+        break;
+    default:
+        printf("INVALID CHOICE");
+        goto chagain1;
+        break;
+	}
+}
+}
+}
+int food()
+{
+ int c2;
+ printf("\nSelect a Restaurant :");
+ scanf("%d",&c2);
+ switch(c2)
+ {
+   case 1:
+       {res1();
+        break;}
+   case 2:
+       {res2();
+        break;}
+   case 3:
+       {res3();
+        break;}
+   case 4:
+       {res4();
+        break;}
+   case 0:
+        thankyou();
+        break;
+   default:
+        printf("Invalid choice");
+        break;
+ }
+}
+void upi()
+{
+ char un[25],pw[25];   //USERNAMES AND PASSWORDS
+tryagain:
+for(int i=0;i<80;i++){printf("-");}
+printf("\t\nUPI PAYMENT");
+printf("\nEnter USERNAME:");
+scanf("%s",&un);
+printf("\nEnter PASSWORD:");
+scanf("%s",&pw);
+if(strcmp(un,"vinoth")==0 && strcmp(pw,"vinothnas")==0)
+{
+printf("\nChecking...");
+Sleep(1000);
+printf("...");
+Sleep(1000);
+printf("\nSuccessful LOGIN!!");
+confirmation();
+}
+else if(strcmp(un,"surya")==0 && strcmp(pw,"surya2314")==0)
+{
+printf("\nChecking...");
+Sleep(1000);
+printf("...");
+Sleep(1000);
+printf("\nSuccessful LOGIN!!");
+confirmation();
+}
+else if(strcmp(un,"sayak")==0 && strcmp(pw,"sayak123")==0)
+{printf("\nChecking...");
+Sleep(1000);
+printf("...");
+Sleep(1000);
+printf("\nSuccessful LOGIN!!");
+confirmation();
+}
+else if(strcmp(un,"santhosh")==0 && strcmp(pw,"san777")==0)
+{printf("\nChecking...");
+Sleep(1000);
+printf("...");
+Sleep(1000);
+printf("\nSuccessful LOGIN!!");
+confirmation();
+}
+else if(strcmp(un,"yazhini")==0 && strcmp(pw,"yazhini23")==0)
+{printf("\nChecking...");
+Sleep(1000);
+printf("...");
+Sleep(1000);
+printf("\nSuccessful LOGIN!!");
+confirmation();
+}
+else if(strcmp(un,"taranalakshmi")==0 && strcmp(pw,"taranalakshmi46")==0)
+{printf("\nChecking...");
+Sleep(1000);
+printf("...");
+Sleep(1000);
+printf("\nSuccessful LOGIN!!");
+confirmation();
+}
+else{
+printf("\nWrong Credentials, Please try again\n");
+goto tryagain;
+	}
+}
+void card()
+{
+  char nc[50],cn[50],ch4[5],vt[25],cvv[3];
+  for(int i=0;i<80;i++){printf("X");}
+  printf("\n\tPAY WITH CARD");
+  printf("\nNAME ON CARD\t:");
+  scanf("%s",&nc);
+  printf("\nCARD NUMBER\t:");
+  scanf("%s",&cn);
+  printf("\nValid thorugh\t:");
+  scanf ("%s",&vt);
+  printf("\nEnter your 3 digit cvv\t:");
+  scanf("%s",&cvv);
+  printf("\nType [yes] to confirm order or [no] to cancel the order : ");
+  scanf("%s",&ch4);
+  if(strcmp(ch4,"yes")==0){printf("Your order is placed!");thankyou();}
+  else {printf("%d","your order have been cancelled!");thankyou();}
+  }
+void confirmation()
+{
+ char confirm[5];
+ printf("\nType 'yes' to Confirm payment and 'no' to cancel order \t:");
+ scanf("%s",&confirm);
+ if(strcmp(confirm,"yes")==0)
+ {
+    printf("\nCHECKING WITH BANK..");
+    Sleep(1000);
+    printf("\n...");
+    printf("\nPAYMENT SUCCESSFULL!!");
+ }
+ else
+    printf("\nORDER CANCELLED, ANY AMT OF MONEY DEBITED WILL BE REFUNDED WITHIN 9 DAYS!");
+    thankyou();
+}
+void cod()
+{
+ char ch5[25];
+ printf("\nType [yes] to confirm order or [no] to cancel the order : ");
+  scanf("%s",&ch5);
+  if(strcmp(ch5,"yes")==0){printf("\n\nYour order is placed!");}
+  else {printf("%d","\n\nyour order have been cancelled!");thankyou();}
+}
+void main()
+{
+  time_t t;
+  time(&t);
+  int i=0;
+  clrscr();
+	    printf("\nCurrent date and time : %s",ctime(&t));
+  firstpage();
+  res_list();
+  food();
+  return 0;
+}
